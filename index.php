@@ -23,3 +23,15 @@ echo "{$objeto1->getNome()}: {$objeto1->getDescricao()} - {$objeto1->getPeso()} 
 $pasta1 = new Pasta('Pasta', 'Pasta de documentos', 'Documentos');
 
 echo "{$pasta1->getNome()}: {$pasta1->getDescricao()} - {$pasta1->getCategoria()}<br>";
+
+//Adicionar itens na gaveta
+$gaveta1 = new Gaveta();
+$gaveta1->adicionarItem($item1);
+$gaveta1->adicionarItem($documento1);
+$gaveta1->adicionarItem($pasta1);
+$gaveta1->adicionarItem($objeto1);
+
+$gaveta1->removerItem("Pasta");
+$gaveta1->adicionarItem($pasta1);
+$gaveta1->removerItem("Caderno");
+$gaveta1->listarItens();
