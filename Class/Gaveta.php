@@ -13,8 +13,8 @@ class Gaveta{
         $this->item = $item;
     }
 
-    public function getItem(): Item {
-        return $this->item;
+    public function getItem(int $indice): Item {
+        return $this->getItem;
     }
 
     public function adicionarItem(Item $item){
@@ -26,14 +26,11 @@ class Gaveta{
     }
 
     public function removerItem(string $nome){
-        $cont = 0;
         foreach($this->itens as $chave => $item){
             if($item['Item']->getNome() == $nome){
-                //array_splice($this->itens, $cont, 1);
                 unset($this->itens[$chave]);
                 echo "{$item['Item']->getNome()} removido com sucesso!<br>";
             }
-            $cont++;
         }
     }
 
@@ -46,3 +43,6 @@ class Gaveta{
             echo "</ul>";
     }
 }
+
+//isset
+//instanceoff

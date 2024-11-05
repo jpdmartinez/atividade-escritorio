@@ -35,3 +35,8 @@ $gaveta1->removerItem("Pasta");
 $gaveta1->adicionarItem($pasta1);
 $gaveta1->removerItem("Caderno");
 $gaveta1->listarItens();
+
+$armario1 = new Armario();
+$armario1->setGaveta($gaveta1);
+$armario1->adicionarGaveta($gaveta1);
+$armario1->listarGavetas();
