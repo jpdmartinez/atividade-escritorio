@@ -39,4 +39,14 @@ $gaveta1->listarItens();
 $armario1 = new Armario();
 $armario1->setGaveta($gaveta1);
 $armario1->adicionarGaveta($gaveta1);
+$armario1->adicionarGaveta($gaveta1);
 $armario1->listarGavetas();
+
+$escritorio1 = new Escritorio();
+$escritorio1->adicionarArmario($armario1);
+$armario1->removerGaveta(0);
+$escritorio1->adicionarArmario($armario1);
+//$escritorio1->listarArmarios();
+$escritorio1->removerArmario(0);
+//$escritorio1->listarArmarios();
+$escritorio1->auditoria();

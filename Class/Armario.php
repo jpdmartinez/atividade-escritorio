@@ -11,7 +11,6 @@ class Armario {
     private array $gavetas = [];
     private Gaveta $gaveta;
 
-
     public function setGaveta(Gaveta $gaveta): void {
         $this->gaveta = $gaveta;
     }
@@ -21,19 +20,36 @@ class Armario {
     }
 
     public function adicionarGaveta(Gaveta $gaveta): void {
-        $adicionarGaveta = [
-            "Gaveta" => $gaveta,
-        ];
-        array_push($this->gavetas, $adicionarGaveta);
+        $this->gaveta = $gaveta;
+        array_push($this->gavetas, $gaveta);
         echo "Gaveta adicionada com sucesso. <br>";
     }
 
+    public function removerGaveta(int $indice){
+        if(empty($this->gavetas)){
+            echo "<h2>Gavetas no Armário</h2>";
+            echo "O armário está vazio";
+        }else {
+            foreach($this->gavetas as $chave => $gaveta){
+                if($chave == $indice){
+                    unset($this->gavetas[$indice]);
+                    echo "Gaveta removida com sucesso!<br>";
+                }
+            }
+        }
+    }
+
     public function listarGavetas(): void {
-        echo "<h2>Lista de Gavetas no Armário</h2>";
+        if(empty($this->gavetas)){
+            echo "<h2>Gavetas no Armário</h2>";
+            echo "O armário está vazio";
+        }else {
+            echo "<h2>Gavetas no Armário</h2>";
             echo "<ul>";
             foreach ($this->gavetas as $chave => $gaveta) {
-                echo "<li>{$gaveta[$chave]}</li>";
+                echo "{$gaveta->listarItens()}";
             }
             echo "</ul>";
+        }
     }
 }

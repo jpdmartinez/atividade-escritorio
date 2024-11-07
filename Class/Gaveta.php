@@ -18,27 +18,24 @@ class Gaveta{
     }
 
     public function adicionarItem(Item $item){
-        $adicionarItem = [
-            "Item" => $item,
-        ];
-        array_push($this->itens, $adicionarItem);
+        array_push($this->itens, $item);
         echo "Item {$item->getNome()} adicionado com sucesso. <br>";
     }
 
     public function removerItem(string $nome){
         foreach($this->itens as $chave => $item){
-            if($item['Item']->getNome() == $nome){
+            if($item->getNome() == $nome){
                 unset($this->itens[$chave]);
-                echo "{$item['Item']->getNome()} removido com sucesso!<br>";
+                echo "{$item->getNome()} removido com sucesso!<br>";
             }
         }
     }
 
     public function listarItens(): void {
-        echo "<h2>Lista de Itens na Gaveta</h2>";
+        echo "<h2>Itens na Gaveta</h2>";
             echo "<ul>";
             foreach ($this->itens as $item) {
-                echo "<li>{$item['Item']->getNome()} - {$item['Item']->getDescricao()} </li>";
+                echo "<li>{$item->getNome()} - {$item->getDescricao()} </li>";
             }
             echo "</ul>";
     }
